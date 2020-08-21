@@ -14,6 +14,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Blazor_BookStore_API.Contracts;
 using Blazor_BookStore_API.Services;
+using AutoMapper;
+using Blazor_BookStore_API.Mappings;
 
 namespace Blazor_BookStore_API {
     public class Startup {
@@ -36,6 +38,8 @@ namespace Blazor_BookStore_API {
                     .AllowAnyMethod()
                     .AllowAnyHeader());
             });
+
+            services.AddAutoMapper(typeof(Maps));
 
             services.AddSwaggerGen(c => {
                 c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo { 
