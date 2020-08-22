@@ -8,7 +8,7 @@ namespace Blazor_BookStore_API.Data {
     [Table("Authors")]
     public partial class Author {
         public int Id { get; set; }
-        public string FirstNme { get; set; }
+        public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Bio { get; set; }
 

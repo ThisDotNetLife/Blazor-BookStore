@@ -4,6 +4,43 @@
         <name>Blazor-BookStore-API</name>
     </assembly>
     <members>
+        <member name="T:Blazor_BookStore_API.Controllers.AuthorsController">
+            <summary>
+            Endpoint used to interact with authors in database.
+            </summary>
+        </member>
+        <member name="M:Blazor_BookStore_API.Controllers.AuthorsController.GetAuthors">
+            <summary>
+            Get all authors.
+            </summary>
+            <returns>List of authors.</returns>
+        </member>
+        <member name="M:Blazor_BookStore_API.Controllers.AuthorsController.GetAuthor(System.Int32)">
+            <summary>
+            Get author by ID.
+            </summary>
+            <returns>Author based on ID.</returns>
+        </member>
+        <member name="M:Blazor_BookStore_API.Controllers.AuthorsController.Create(Blazor_BookStore_API.DTOs.AuthorCreateDTO)">
+            <summary>
+            Create new author.
+            </summary>
+            <param name="authorDTO"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Blazor_BookStore_API.Controllers.AuthorsController.Update(Blazor_BookStore_API.DTOs.AuthorUpdateDTO)">
+            <summary>
+            Update values for an existing author.
+            </summary>
+            <param name="authorUpdateDTO">Body containing properties the user can update, such as first name, last name, and bio.</param>
+            <returns>Properties for given author after successful update.</returns>
+        </member>
+        <member name="M:Blazor_BookStore_API.Controllers.AuthorsController.Author(System.Int32)">
+            <summary>
+            Delete author by ID.
+            </summary>
+            <returns>Delete based on ID.</returns>
+        </member>
         <member name="T:Blazor_BookStore_API.Controllers.HomeController">
             <summary>
             This is a test API controller.
