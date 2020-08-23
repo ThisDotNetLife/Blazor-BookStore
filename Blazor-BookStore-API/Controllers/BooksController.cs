@@ -12,36 +12,37 @@ using Blazor_BookStore_API.Data;
 
 namespace Blazor_BookStore_API.Controllers {
     /// <summary>
-    /// REST endpoint that's used to interact with authors in database.
+    /// REST endpoint that's used to interact with books in database.
     /// </summary>
     [Route("api/[controller]")]
-    [ApiController]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-    public class AuthorsController : ControllerBase {
-        private readonly IAuthorRepository _authorRepostory;
+    [ApiController]
+
+    public class BooksController : ControllerBase {
+        private readonly IBookRepository _bookRepostory;
         private readonly ILoggerService _logger;
         private readonly IMapper _mapper;
 
-        public AuthorsController(IAuthorRepository authorRepository, ILoggerService logger, IMapper mapper) {
-            _authorRepostory = authorRepository;
+        public BooksController(IBookRepository bookRepository, ILoggerService logger, IMapper mapper) {
+            _bookRepostory = bookRepository;
             _logger = logger;
             _mapper = mapper;
         }
 
         /// <summary>
-        /// Get all authors.
+        /// Get all books.
         /// </summary>
-        /// <returns>List of authors.</returns>
+        /// <returns>List of all books and their authors.</returns>
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> GetAuthors() {
+        public async Task<IActionResult> GetBooks() {
             var location = GetControllerActionName();
             try {
                 _logger.LogInfo($"{location}: Attempted Call");
-                var authors = await _authorRepostory.FindAll();
-                var response = _mapper.Map<IList<AuthorDTO>>(authors);
+                var books = await _bookRepostory.FindAll();
+                var response = _mapper.Map<IList<BookDTO>>(books);
                 _logger.LogInfo($"{location}: Successfull");
                 return Ok(response);
             }
@@ -51,22 +52,22 @@ namespace Blazor_BookStore_API.Controllers {
         }
 
         /// <summary>
-        /// Get author by ID.
+        /// Get book by ID.
         /// </summary>
-        /// <returns>Author based on ID.</returns>
+        /// <returns>Book based on ID.</returns>
         [HttpGet("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> GetAuthor(int id) {
+        public async Task<IActionResult> GetBook(int id) {
             var location = GetControllerActionName();
             try {
                 _logger.LogInfo($"{location}: Attempted Call");
-                var author = await _authorRepostory.FindById(id);
-                if (author == null) {
-                    _logger.LogWarn($"{location}: Author with id:{id} not found.");
+                var book = await _bookRepostory.FindById(id);
+                if (book == null) {
+                    _logger.LogWarn($"{location}: Book with id:{id} not found.");
                     return NotFound();
                 } else {
-                    var response = _mapper.Map<AuthorDTO>(author);
+                    var response = _mapper.Map<BookDTO>(book);
                     _logger.LogInfo($"{location}: Successfull");
                     return Ok(response);
                 }
@@ -77,35 +78,35 @@ namespace Blazor_BookStore_API.Controllers {
         }
 
         /// <summary>
-        /// Create new author.
+        /// Create new book.
         /// </summary>
-        /// <param name="authorDTO"></param>
+        /// <param name="bookDTO"></param>
         /// <returns></returns>
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult>Create([FromBody] AuthorCreateDTO authorDTO) {
+        public async Task<IActionResult> Create([FromBody] BookCreateDTO bookDTO) {
             var location = GetControllerActionName();
             try {
                 _logger.LogInfo($"{location}: Attempted Call");
 
-                if (authorDTO == null) {
-                    _logger.LogWarn($"{location}: Parameter (author) not provided.");
+                if (bookDTO == null) {
+                    _logger.LogWarn($"{location}: Parameter (bookDTO) not provided.");
                     return BadRequest(ModelState);
                 } else {
                     if (!ModelState.IsValid) {
-                        _logger.LogWarn($"{location}: Author data is incomplete.");
+                        _logger.LogWarn($"{location}: Book data is incomplete.");
                         return BadRequest(ModelState);
                     } else {
-                        var author = _mapper.Map<Author>(authorDTO);
-                        var isSuccess = await _authorRepostory.Create(author);
+                        var book = _mapper.Map<Book>(bookDTO);
+                        var isSuccess = await _bookRepostory.Create(book);
                         if (!isSuccess) {
-                            _logger.LogError("{location}: Author creation failed.");
-                            return StatusCode(500, "Author creation failed. Please contact customer support.");
+                            _logger.LogError("{location}: Book creation failed.");
+                            return StatusCode(500, "Book creation failed. Please contact customer support.");
                         } else {
                             _logger.LogInfo($"{location}: Successfull");
-                            return Created("Create", new { author });
+                            return Created("Create", new { book });
                         }
                     }
                 }
@@ -116,32 +117,32 @@ namespace Blazor_BookStore_API.Controllers {
         }
 
         /// <summary>
-        /// Update values for an existing author.
+        /// Update values for an existing book.
         /// </summary>
-        /// <param name="authorUpdateDTO">Body containing properties the user can update, such as first name, last name, and bio.</param>
-        /// <returns>Properties for given author after successful update.</returns>
+        /// <param name="bookUpdateDTO">Body containing properties the user can update.</param>
+        /// <returns>When update is successful, nothing is returned. Action method will return HTTP Status Code 204.</returns>
         [HttpPut]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> Update([FromBody] AuthorUpdateDTO authorUpdateDTO) {
+        public async Task<IActionResult> Update([FromBody] BookUpdateDTO bookUpdateDTO) {
             var location = GetControllerActionName();
             try {
                 _logger.LogInfo($"{location}: Attempted Call");
 
-                if (authorUpdateDTO == null) {
-                    _logger.LogWarn($"{location}: Parameter (author) not provided");
+                if (bookUpdateDTO == null) {
+                    _logger.LogWarn($"{location}: Parameter (bookUpdateDTO) not provided");
                     return BadRequest(ModelState);
                 } else {
                     if (!ModelState.IsValid) {
-                        _logger.LogWarn($"{location}: Author data is incomplete.");
+                        _logger.LogWarn($"{location}: Book data is incomplete.");
                         return BadRequest(ModelState);
                     } else {
-                        var author = _mapper.Map<Author>(authorUpdateDTO);
-                        var isSuccess = await _authorRepostory.Update(author);
+                        var book = _mapper.Map<Book>(bookUpdateDTO);
+                        var isSuccess = await _bookRepostory.Update(book);
                         if (!isSuccess) {
-                            _logger.LogError("{location}: Update for existing author failed.");
-                            return StatusCode(500, "Update author failed. Please contact customer support.");
+                            _logger.LogError("{location}: Update for existing book failed.");
+                            return StatusCode(500, "Update book failed. Please contact customer support.");
                         } else {
                             _logger.LogInfo($"{location}: Successfull");
 
@@ -157,27 +158,27 @@ namespace Blazor_BookStore_API.Controllers {
         }
 
         /// <summary>
-        /// Delete author by ID.
+        /// Delete book by ID.
         /// </summary>
         /// <returns>Delete based on ID.</returns>
         [HttpDelete("{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult>Author(int id) {
+        public async Task<IActionResult> Book(int id) {
             var location = GetControllerActionName();
             _logger.LogInfo($"{location}: Attempted Call");
             try {
-                var authorExists = await _authorRepostory.Exists(id);
-                if (!authorExists) {
-                    _logger.LogWarn($"{location}: Author with id:{id} not found.");
-                    return StatusCode(404, $"Author (id: {id}) not found.");
-                } else {                    
-                    var author = await _authorRepostory.FindById(id);
-                    var isSuccess = await _authorRepostory.Delete(author);
+                var bookExists = await _bookRepostory.Exists(id);
+                if (!bookExists) {
+                    _logger.LogWarn($"{location}: Book with id:{id} not found.");
+                    return StatusCode(404, $"Book (id: {id}) not found.");
+                } else {
+                    var book = await _bookRepostory.FindById(id);
+                    var isSuccess = await _bookRepostory.Delete(book);
                     if (!isSuccess) {
-                        _logger.LogError("{location}: Attempt to delete author id: {id} failed.");
-                        return StatusCode(500, "Delete author failed. Please contact customer support.");
+                        _logger.LogError("{location}: Attempt to delete book id: {id} failed.");
+                        return StatusCode(500, "Delete book failed. Please contact customer support.");
                     } else {
                         _logger.LogInfo($"{location}: Successfull");
                         return NoContent();

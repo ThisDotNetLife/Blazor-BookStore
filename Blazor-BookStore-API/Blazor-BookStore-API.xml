@@ -6,7 +6,7 @@
     <members>
         <member name="T:Blazor_BookStore_API.Controllers.AuthorsController">
             <summary>
-            Endpoint used to interact with authors in database.
+            REST endpoint that's used to interact with authors in database.
             </summary>
         </member>
         <member name="M:Blazor_BookStore_API.Controllers.AuthorsController.GetAuthors">
@@ -38,6 +38,43 @@
         <member name="M:Blazor_BookStore_API.Controllers.AuthorsController.Author(System.Int32)">
             <summary>
             Delete author by ID.
+            </summary>
+            <returns>Delete based on ID.</returns>
+        </member>
+        <member name="T:Blazor_BookStore_API.Controllers.BooksController">
+            <summary>
+            REST endpoint that's used to interact with books in database.
+            </summary>
+        </member>
+        <member name="M:Blazor_BookStore_API.Controllers.BooksController.GetBooks">
+            <summary>
+            Get all books.
+            </summary>
+            <returns>List of all books and their authors.</returns>
+        </member>
+        <member name="M:Blazor_BookStore_API.Controllers.BooksController.GetBook(System.Int32)">
+            <summary>
+            Get book by ID.
+            </summary>
+            <returns>Book based on ID.</returns>
+        </member>
+        <member name="M:Blazor_BookStore_API.Controllers.BooksController.Create(Blazor_BookStore_API.DTOs.BookCreateDTO)">
+            <summary>
+            Create new book.
+            </summary>
+            <param name="bookDTO"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Blazor_BookStore_API.Controllers.BooksController.Update(Blazor_BookStore_API.DTOs.BookUpdateDTO)">
+            <summary>
+            Update values for an existing book.
+            </summary>
+            <param name="bookUpdateDTO">Body containing properties the user can update.</param>
+            <returns>When update is successful, nothing is returned. Action method will return HTTP Status Code 204.</returns>
+        </member>
+        <member name="M:Blazor_BookStore_API.Controllers.BooksController.Book(System.Int32)">
+            <summary>
+            Delete book by ID.
             </summary>
             <returns>Delete based on ID.</returns>
         </member>

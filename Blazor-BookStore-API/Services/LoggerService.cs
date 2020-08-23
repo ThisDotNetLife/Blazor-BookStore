@@ -14,15 +14,15 @@ namespace Blazor_BookStore_API.Services {
         }
 
         public void LogError(string message) {
-            logger.Debug(message);
+            logger.Error(message);
         }
 
         public void LogInfo(string message) {
-            logger.Debug(message);
+            logger.Info(message);
         }
 
         public void LogWarn(string message) {
-            logger.Debug(message);
+            logger.Warn(message);
         }
     }
 }

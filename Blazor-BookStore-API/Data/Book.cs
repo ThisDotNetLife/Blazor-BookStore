@@ -13,7 +13,7 @@ namespace Blazor_BookStore_API.Data {
         public string ISBN { get; set; }
         public string Summary { get; set; }
         public string Cover { get; set; }
-        public double? Price { get; set; }
+        public decimal? Price { get; set; }
         public int? AuthorId { get; set; }
 
         // Automatically retrieves record containing author of given book.
