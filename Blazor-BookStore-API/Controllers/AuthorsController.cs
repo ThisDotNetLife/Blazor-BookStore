@@ -9,6 +9,7 @@ using Blazor_BookStore_API.Contracts;
 using AutoMapper;
 using Blazor_BookStore_API.DTOs;
 using Blazor_BookStore_API.Data;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Blazor_BookStore_API.Controllers {
     /// <summary>
@@ -34,6 +35,7 @@ namespace Blazor_BookStore_API.Controllers {
         /// </summary>
         /// <returns>List of authors.</returns>
         [HttpGet]
+        [AllowAnonymous]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> GetAuthors() {
@@ -55,6 +57,7 @@ namespace Blazor_BookStore_API.Controllers {
         /// </summary>
         /// <returns>Author based on ID.</returns>
         [HttpGet("{id}")]
+        [AllowAnonymous]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> GetAuthor(int id) {
@@ -82,6 +85,7 @@ namespace Blazor_BookStore_API.Controllers {
         /// <param name="authorDTO"></param>
         /// <returns></returns>
         [HttpPost]
+        [Authorize(Roles = "Administrator")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -121,6 +125,7 @@ namespace Blazor_BookStore_API.Controllers {
         /// <param name="authorUpdateDTO">Body containing properties the user can update, such as first name, last name, and bio.</param>
         /// <returns>Properties for given author after successful update.</returns>
         [HttpPut]
+        [Authorize(Roles = "Administrator")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -161,6 +166,7 @@ namespace Blazor_BookStore_API.Controllers {
         /// </summary>
         /// <returns>Delete based on ID.</returns>
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Administrator")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]

@@ -1,42 +1,54 @@
-2020-08-23 09:20:05.8678 INFO Books - GetBooks: Attempted Call
-2020-08-23 09:20:07.2750 ERROR Books - GetBooks: Unable to cast object of type 'System.Decimal' to type 'System.Double'. - 
-2020-08-23 09:22:44.3430 INFO Books - GetBooks: Attempted Call
-2020-08-23 09:22:52.9548 ERROR Books - GetBooks: Unable to cast object of type 'System.Decimal' to type 'System.Double'. - 
-2020-08-23 09:29:58.1470 INFO Authors - Create: Attempted Call
-2020-08-23 09:29:59.3027 INFO Authors - Create: Successfull
-2020-08-23 09:32:49.3574 INFO Authors - GetAuthors: Attempted Call
-2020-08-23 09:32:49.5832 INFO Authors - GetAuthors: Successfull
-2020-08-23 09:37:18.8265 INFO Books - Create: Attempted Call
-2020-08-23 09:37:18.9080 INFO Books - Create: Successfull
-2020-08-23 09:38:56.4033 INFO Books - Create: Attempted Call
-2020-08-23 09:38:56.4233 INFO Books - Create: Successfull
-2020-08-23 09:39:21.0127 INFO Books - GetBooks: Attempted Call
-2020-08-23 09:39:21.1937 ERROR Books - GetBooks: Unable to cast object of type 'System.Decimal' to type 'System.Double'. - 
-2020-08-23 09:40:16.0299 INFO Books - GetBook: Attempted Call
-2020-08-23 09:40:16.2503 ERROR Books - GetBook: Unable to cast object of type 'System.Decimal' to type 'System.Double'. - 
-2020-08-23 09:40:26.8556 INFO Books - GetBooks: Attempted Call
-2020-08-23 09:40:26.9589 ERROR Books - GetBooks: Unable to cast object of type 'System.Decimal' to type 'System.Double'. - 
-2020-08-23 09:40:29.5742 INFO Books - Create: Attempted Call
-2020-08-23 09:40:29.6139 INFO Books - Create: Successfull
-2020-08-23 10:24:52.8423 INFO Books - Update: Attempted Call
-2020-08-23 10:24:54.0485 INFO Books - Update: Successfull
-2020-08-23 10:25:44.9146 INFO Books - Update: Attempted Call
-2020-08-23 10:26:08.6792 INFO Books - Update: Successfull
-2020-08-23 10:27:47.2067 INFO Books - Update: Attempted Call
-2020-08-23 10:27:47.2597 INFO Books - Update: Successfull
-2020-08-23 10:33:40.4221 INFO Books - Update: Attempted Call
-2020-08-23 10:33:41.6579 INFO Books - Update: Successfull
-2020-08-23 10:37:47.4771 INFO Books - Update: Attempted Call
-2020-08-23 10:37:48.6229 INFO Books - Update: Successfull
-2020-08-23 10:41:22.4616 INFO Books - Update: Attempted Call
-2020-08-23 10:41:23.6649 INFO Books - Update: Successfull
-2020-08-23 10:55:33.1002 INFO Books - Book: Attempted Call
-2020-08-23 10:55:34.2976 WARN Books - Book: Book with id:678 not found.
-2020-08-23 10:57:36.9030 INFO Books - Book: Attempted Call
-2020-08-23 10:57:37.1822 ERROR Books - Book: Unable to cast object of type 'System.Decimal' to type 'System.Double'. - 
-2020-08-23 10:58:37.8194 INFO Books - Book: Attempted Call
-2020-08-23 10:59:14.8475 ERROR Books - Book: Unable to cast object of type 'System.Decimal' to type 'System.Double'. - 
-2020-08-23 11:09:27.5650 INFO Books - Book: Attempted Call
-2020-08-23 11:09:28.9265 INFO Books - Book: Successfull
-2020-08-23 11:10:03.9036 INFO Books - Create: Attempted Call
-2020-08-23 11:10:04.0332 INFO Books - Create: Successfull
+2020-08-23 15:40:38.1619 INFO Users - Login: Attempted Call
+2020-08-23 15:40:38.3893 INFO Users - Login: Successful authentication.
+2020-08-23 15:40:41.9523 INFO Users - Login: Attempted Call
+2020-08-23 15:40:42.0089 INFO Users - Login: Successful authentication.
+2020-08-23 15:40:45.7404 INFO Users - Login: Attempted Call
+2020-08-23 15:40:45.7708 INFO Users - Login: Successful authentication.
+2020-08-23 15:40:58.6348 INFO Users - Login: Attempted Call
+2020-08-23 15:40:58.6835 WARN Users - Login: Unsuccessful authentication.
+2020-08-23 15:41:21.4127 INFO Users - Login: Attempted Call
+2020-08-23 15:41:21.4301 WARN Users - Login: Unsuccessful authentication.
+2020-08-23 16:28:05.6397 INFO Users - Login: Attempted Call
+2020-08-23 16:28:05.8806 INFO Users - Login: Successful authentication.
+2020-08-23 19:53:19.2646 INFO Users - Login: Attempted Call
+2020-08-23 19:53:19.4900 INFO Users - Login: Successful authentication.
+2020-08-23 19:53:43.0585 INFO Books - Create: Attempted Call
+2020-08-23 19:53:43.2912 INFO Books - Create: Successfull
+2020-08-23 19:57:30.9669 INFO Users - Login: Attempted Call
+2020-08-23 19:57:31.0171 INFO Users - Login: Successful authentication.
+2020-08-23 19:58:23.5310 INFO Authors - Create: Attempted Call
+2020-08-23 19:58:23.5655 INFO Authors - Create: Successfull
+2020-08-23 19:59:40.1759 INFO Authors - GetAuthors: Attempted Call
+2020-08-23 19:59:40.2280 INFO Authors - GetAuthors: Successfull
+2020-08-23 20:00:25.1878 INFO Users - Login: Attempted Call
+2020-08-23 20:00:25.2434 INFO Users - Login: Successful authentication.
+2020-08-23 20:00:56.5612 INFO Authors - Author: Attempted Call
+2020-08-23 20:00:56.6495 INFO Authors - Author: Successfull
+2020-08-23 20:01:18.0110 INFO Authors - GetAuthors: Attempted Call
+2020-08-23 20:01:18.0483 INFO Authors - GetAuthors: Successfull
+2020-08-23 20:01:22.5766 INFO Authors - GetAuthor: Attempted Call
+2020-08-23 20:01:22.6470 WARN Authors - GetAuthor: Author with id:2 not found.
+2020-08-23 20:01:27.9944 INFO Authors - GetAuthor: Attempted Call
+2020-08-23 20:01:28.0251 INFO Authors - GetAuthor: Successfull
+2020-08-23 20:03:54.2015 INFO Users - Login: Attempted Call
+2020-08-23 20:03:54.3781 INFO Users - Login: Successful authentication.
+2020-08-23 20:04:17.5561 INFO Users - Login: Attempted Call
+2020-08-23 20:04:17.6147 INFO Users - Login: Successful authentication.
+2020-08-23 20:04:27.0245 INFO Users - Login: Attempted Call
+2020-08-23 20:04:27.0638 INFO Users - Login: Successful authentication.
+2020-08-23 20:04:33.2091 INFO Users - Login: Attempted Call
+2020-08-23 20:04:33.3058 INFO Users - Login: Successful authentication.
+2020-08-23 20:04:35.0512 INFO Users - Login: Attempted Call
+2020-08-23 20:04:35.0744 INFO Users - Login: Successful authentication.
+2020-08-23 20:04:40.5188 INFO Users - Login: Attempted Call
+2020-08-23 20:04:40.5658 INFO Users - Login: Successful authentication.
+2020-08-23 20:04:56.4929 INFO Users - Login: Attempted Call
+2020-08-23 20:04:56.5176 INFO Users - Login: Successful authentication.
+2020-08-23 20:05:12.8123 INFO Users - Login: Attempted Call
+2020-08-23 20:05:12.8489 INFO Users - Login: Successful authentication.
+2020-08-23 20:05:45.7193 INFO Users - Login: Attempted Call
+2020-08-23 20:05:45.9299 INFO Users - Login: Successful authentication.
+2020-08-23 20:05:57.6562 INFO Users - Login: Attempted Call
+2020-08-23 20:05:57.7040 INFO Users - Login: Successful authentication.
+2020-08-23 20:06:13.4908 INFO Users - Login: Attempted Call
+2020-08-23 20:06:13.5282 INFO Users - Login: Successful authentication.
