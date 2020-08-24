@@ -17,6 +17,7 @@ namespace Blazor_BookStore_API.Controllers {
     /// </summary>
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     public class AuthorsController : ControllerBase {
@@ -35,7 +36,6 @@ namespace Blazor_BookStore_API.Controllers {
         /// </summary>
         /// <returns>List of authors.</returns>
         [HttpGet]
-        [AllowAnonymous]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> GetAuthors() {
@@ -56,8 +56,7 @@ namespace Blazor_BookStore_API.Controllers {
         /// Get author by ID.
         /// </summary>
         /// <returns>Author based on ID.</returns>
-        [HttpGet("{id}")]
-        [AllowAnonymous]
+        [HttpGet("{id}")]      
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> GetAuthor(int id) {

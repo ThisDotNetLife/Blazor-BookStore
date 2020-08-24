@@ -52,3 +52,25 @@
 2020-08-23 20:05:57.7040 INFO Users - Login: Successful authentication.
 2020-08-23 20:06:13.4908 INFO Users - Login: Attempted Call
 2020-08-23 20:06:13.5282 INFO Users - Login: Successful authentication.
+2020-08-23 20:27:24.1728 INFO Users - Login: Attempted Call
+2020-08-23 20:27:24.3744 INFO Users - Login: Successful authentication.
+2020-08-23 20:27:46.2792 INFO Authors - GetAuthors: Attempted Call
+2020-08-23 20:27:46.3460 INFO Authors - GetAuthors: Successfull
+2020-08-23 20:27:58.5506 INFO Authors - GetAuthor: Attempted Call
+2020-08-23 20:27:58.5866 INFO Authors - GetAuthor: Successfull
+2020-08-23 20:28:12.3906 INFO Books - GetBooks: Attempted Call
+2020-08-23 20:28:12.4473 INFO Books - GetBooks: Successfull
+2020-08-23 20:28:21.1245 INFO Books - GetBook: Attempted Call
+2020-08-23 20:28:21.1939 WARN Books - GetBook: Book with id:4 not found.
+2020-08-23 20:28:26.5356 INFO Books - GetBook: Attempted Call
+2020-08-23 20:28:26.5515 WARN Books - GetBook: Book with id:4 not found.
+2020-08-23 20:28:42.2505 INFO Books - GetBook: Attempted Call
+2020-08-23 20:28:42.2768 INFO Books - GetBook: Successfull
+2020-08-23 20:30:04.1196 INFO Users - Login: Attempted Call
+2020-08-23 20:30:04.1593 INFO Users - Login: Successful authentication.
+2020-08-23 20:30:28.7528 INFO Users - Login: Attempted Call
+2020-08-23 20:30:28.7870 INFO Users - Login: Successful authentication.
+2020-08-23 20:30:50.5648 INFO Authors - Create: Attempted Call
+2020-08-23 20:30:50.7287 INFO Authors - Create: Successfull
+2020-08-23 20:35:16.2103 INFO Books - Create: Attempted Call
+2020-08-23 20:35:16.2560 INFO Books - Create: Successfull

@@ -9,6 +9,7 @@ using Blazor_BookStore_API.Contracts;
 using AutoMapper;
 using Blazor_BookStore_API.DTOs;
 using Blazor_BookStore_API.Data;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Blazor_BookStore_API.Controllers {
     /// <summary>
@@ -18,7 +19,7 @@ namespace Blazor_BookStore_API.Controllers {
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     [ApiController]
-
+    [Authorize]
     public class BooksController : ControllerBase {
         private readonly IBookRepository _bookRepostory;
         private readonly ILoggerService _logger;
@@ -83,6 +84,7 @@ namespace Blazor_BookStore_API.Controllers {
         /// <param name="bookDTO"></param>
         /// <returns></returns>
         [HttpPost]
+        [Authorize(Roles = "Administrator")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -122,6 +124,7 @@ namespace Blazor_BookStore_API.Controllers {
         /// <param name="bookUpdateDTO">Body containing properties the user can update.</param>
         /// <returns>When update is successful, nothing is returned. Action method will return HTTP Status Code 204.</returns>
         [HttpPut]
+        [Authorize(Roles = "Administrator")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -162,6 +165,7 @@ namespace Blazor_BookStore_API.Controllers {
         /// </summary>
         /// <returns>Delete based on ID.</returns>
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Administrator")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
